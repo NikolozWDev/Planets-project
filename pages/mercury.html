@@ -8,36 +8,36 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="icon" href="../assets/300583492_492809606182141_9047911010340874246_n.jpg">
     <title>Edutech-Mercury</title>
+    <script src="../scripts/index.js" type="module" defer></script>
 </head>
-
-    <!-- header -->
-<header>
-    <div class="main-header">
-
-        <p class="header-title">THE PLANETS</p>
-
-        <img class="burger-bar" src="../assets/Group.png">
-
-    </div>
-</header>
 
 
 <body>
 
+        <!-- header -->
+        <header class="header">
+        </header>
+
     <!-- content buttons -->
-    <div class="buttons-div">
+    <div class="buttons-div delete1">
         <button class="buttons-div-button">OVERVIEW</button>
         <button class="buttons-div-button">STRUCTURE</button>
         <button class="buttons-div-button">SURFACE</button>
     </div>
 
 
+    <div class="main-content-container">
     <!-- main selector (planet, content, content buttons) -->
     <div class="main-selector">
 
 
         <div class="main-img-selector">
-            <img class="planet" src="../assets/1.png">
+            <div class="image-absolute">
+            <img class="planet both1" src="../assets/1.png">
+            <img id="planet-images" class="invisible" src="../assets/1.png">
+            <img class="planet-2" src="../assets/Guts.png">
+            <img class="planet-3" src="../assets/Group 8.png">
+        </div>
         </div>
 
 
@@ -51,13 +51,23 @@
                     </p>
                 <p class="content-source">Source : <a class="source-link">Wikipedia</a></p>
             </div>
+            
+            <div class="delete-it">
+            <div class="buttons-div">
+                <button class="buttons-div-button"><span class="button-number">01</span> OVERVIEW</button>
+                <button class="buttons-div-button"><span class="button-number">02</span> INTERNAL STRUCTURE</button>
+                <button class="buttons-div-button"><span class="button-number">03</span> SURFACE GEOLOGY</button>
+            </div>
+        </div>
 
         </div>
 
 
     </div>
+</div>
 
 
+<div class="main-buttons-container">
     <!-- record containers -->
     <div class="record-container">
 
@@ -66,19 +76,20 @@
             <p class="record-right">58.6 DAYS</p>
         </div>
         <div class="record-selector">
-            <p class="record-left">ROTATION TIME</p>
-            <p class="record-right">58.6 DAYS</p>
+            <p class="record-left">REVOLUTION TIME</p>
+            <p class="record-right">87.97 DAYS</p>
         </div>
         <div class="record-selector">
-            <p class="record-left">ROTATION TIME</p>
-            <p class="record-right">58.6 DAYS</p>
+            <p class="record-left">RADIUS</p>
+            <p class="record-right">2,439.7 KM</p>
         </div>
         <div class="record-selector">
-            <p class="record-left">ROTATION TIME</p>
-            <p class="record-right">58.6 DAYS</p>
+            <p class="record-left">AVERAGE TEMP.</p>
+            <p class="record-right">430°C</p>
         </div>
 
     </div>
+</div>
 
 </body>
 </html>
