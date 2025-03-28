@@ -111,12 +111,13 @@ a {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
 }
 .planet-2 {
     height: 100%;
     position: absolute;
     right: 0;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
 }
 .planet-3 {
@@ -124,7 +125,7 @@ a {
     width: 60px;
     height: 75px;
     bottom: -50px;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
 }
 .main-content-selector {
@@ -225,6 +226,9 @@ a {
     }
 }
 @media (min-width: 650px) {
+    .main-selector {
+        gap: 50px;
+    }
     .record-selector {
         width: 100px;
         height: 60px;
@@ -237,6 +241,9 @@ a {
     }
 }
 @media (min-width: 750px) {
+    .main-selector {
+        gap: 0px;
+    }
     .delete1 {
         display: none;
     }
@@ -335,7 +342,7 @@ a {
         padding: 30px 0px 30px 0px;
     }
     .planet-links:hover {
-        border-top: 3px solid rgba(65, 158, 187, 1);
+        /* border-top: 3px solid rgba(65, 158, 187, 1); */
         color: rgba(255, 255, 255, 1);
     }
     .main-header {
