@@ -258,6 +258,21 @@ function manipulation() {
                 if(lastclicked2) {
                     lastclicked2.style.borderBottom = `3px solid rgba(7, 7, 36, 1)`
                 }
+                anotherbuttons[0].addEventListener('click', function() {
+                    document.querySelector('.content-text').innerHTML = dataPlanet[plIn2].content1;
+                    document.querySelector('.planet-2').classList.remove('active2')
+                    document.querySelector('.planet-3').classList.remove('active3')
+                });
+                anotherbuttons[1].addEventListener('click', function() {
+                    document.querySelector('.content-text').innerHTML = dataPlanet[plIn2].content2;
+                    document.querySelector('.planet-2').classList.add('active2')
+                    document.querySelector('.planet-3').classList.remove('active3')
+                });
+                anotherbuttons[2].addEventListener('click', function() {
+                    document.querySelector('.content-text').innerHTML = dataPlanet[plIn2].content3;
+                    document.querySelector('.planet-2').classList.remove('active2')
+                    document.querySelector('.planet-3').classList.add('active3')
+                });
                 another.style.borderBottom = `3px solid ${dataPlanet[plIn2].animationColor}`;
                 lastclicked2 = another
             })
