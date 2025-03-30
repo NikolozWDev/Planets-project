@@ -34,6 +34,12 @@ a {
     height: 17px;
 }
 .main-header {
+    position: fixed;
+    z-index: 101;
+    background-color: rgba(7, 7, 36, 1);
+    left: 0;
+    top: 0;
+    right: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -64,7 +70,7 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 20px 0px 20px;
+    padding: 75px 20px 0px 20px;
     border-bottom: 1px solid rgb(53, 53, 53);
 }
 .buttons-div-button {
@@ -117,16 +123,24 @@ a {
     height: 100%;
     position: absolute;
     right: 0;
-    opacity: 1;
+    opacity: 0;
     pointer-events: none;
+    transition: all 0.3s;
+}
+.planet-2.active2 {
+    opacity: 1;
 }
 .planet-3 {
     position: absolute;
     width: 60px;
     height: 75px;
     bottom: -50px;
-    opacity: 1;
+    opacity: 0;
     pointer-events: none;
+    transition: all 0.3s;
+}
+.planet-3.active3 {
+    opacity: 1;
 }
 .main-content-selector {
     display: flex;
@@ -146,6 +160,9 @@ a {
     font-weight: 400;
     font-size: 40px;
     font-family: 'Antonio', sans-serif;
+}
+.anotherbutton {
+    border-bottom: 3px solid rgba(7, 7, 36, 1);
 }
 .content-text {
     color: rgb(204, 204, 204);
@@ -198,6 +215,88 @@ a {
     font-family: 'Antonio', sans-serif;
     letter-spacing: -0.75px;
 }
+.menubar {
+    position: fixed;
+    left: 0;
+    top: 73px;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(7, 7, 36, 1);
+    z-index: 103;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 30px 0px 30px 0px;
+    overflow-y: scroll;
+    gap: 10px;
+    transform: translateX(-50px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+.menubar.active {
+    transform: translateX(0px);
+    opacity: 1;
+    pointer-events: all;
+}
+.menubar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 23px 0px 23px 0px;
+    border-bottom: 1px solid rgb(44, 44, 44);
+}
+.container-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.container-right {
+    font-size: 18px;
+    color: rgb(83, 83, 83);
+    font-weight: bold;
+}
+.planetname {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    font-family: 'Spartan', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1.36px;
+}
+.divplanet {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.pl1 {
+    background-color: rgba(222, 244, 252, 1);
+}
+.pl2 {
+    background-color: rgba(247, 204, 127, 1);
+}
+.pl3 {
+    background-color: rgba(84, 91, 254, 1);
+}
+.pl4 {
+    background-color: rgba(255, 106, 69, 1);
+}
+.pl5 {
+    background-color: rgba(236, 173, 122, 1);
+}
+.pl6 {
+    background-color: rgba(252, 203, 107, 1);
+}
+.pl7 {
+    background-color: rgba(101, 240, 213, 1);
+}
+.pl8 {
+    background-color: rgba(73, 126, 250, 1);
+}
 
 
 
@@ -243,6 +342,7 @@ a {
 @media (min-width: 750px) {
     .main-selector {
         gap: 0px;
+        margin-top: 120px;
     }
     .delete1 {
         display: none;
@@ -257,6 +357,7 @@ a {
         text-align: start;
     }
     .buttons-div {
+        position: static;
         border-bottom: none;
         padding: 0px;
         flex-direction: column;
@@ -361,6 +462,7 @@ a {
         align-items: center;
         gap: 0px;
         padding: 120px 100px 50px 0px;
+        margin-top: 50px;
     }
     .main-content-selector {
         flex-direction: column;
@@ -381,7 +483,7 @@ a {
     .planet-3 {
         width: 120px;
         height: 145px;
-        bottom: -75px;
+        bottom: -20px;
     }
     .main-img-selector {
         padding: 60px 0px 60px 150px;

@@ -3,14 +3,79 @@ import { dataPlanet } from "../data/planets.js";
 header();
 
 
+// return page content
 function GenerateContent(index) {
+    
     return `
     
     <!-- content buttons -->
+
+        <div class="menubar">
+                
+            <a href="mercury.html" class="menubar-container">
+                <div class="container-left">
+                    <div class="divplanet pl1"></div>
+                    <p class="planetname">MERCURY</p>
+                </div>
+                <p class="container-right">></p>
+            </a>
+            <a href="venus.html" class="menubar-container">
+                <div class="container-left">
+                    <div class="divplanet pl2"></div>
+                    <p class="planetname">VENUS</p>
+                </div>
+                <p class="container-right">></p>
+            </a>
+            <a href="earth.html" class="menubar-container">
+                <div class="container-left">
+                    <div class="divplanet pl3"></div>
+                    <p class="planetname">EARTH</p>
+                </div>
+                <p class="container-right">></p>
+            </a>
+            <a href="mars.html" class="menubar-container">
+                <div class="container-left">
+                    <div class="divplanet pl4"></div>
+                    <p class="planetname">MARS</p>
+                </div>
+                <p class="container-right">></p>
+            </a>
+            <a href="jupiter.html" class="menubar-container">
+                <div class="container-left">
+                    <div class="divplanet pl5"></div>
+                    <p class="planetname">JUPITER</p>
+                </div>
+                <p class="container-right">></p>
+            </a>
+            <a href="saturn.html" class="menubar-container">
+                <div class="container-left">
+                    <div class="divplanet pl6"></div>
+                    <p class="planetname">SATURN</p>
+                </div>
+                <p class="container-right">></p>
+            </a>
+            <a href="uranus.html" class="menubar-container">
+                <div class="container-left">
+                    <div class="divplanet pl7"></div>
+                    <p class="planetname">URANUS</p>
+                </div>
+                <p class="container-right">></p>
+            </a>
+            <a href="neptune.html" class="menubar-container">
+                <div class="container-left">
+                    <div class="divplanet pl8"></div>
+                    <p class="planetname">NEPTUNE</p>
+                </div>
+                <p class="container-right">></p>
+            </a>
+
+        </div>
+
+
     <div class="buttons-div delete1">
-        <button class="buttons-div-button">OVERVIEW</button>
-        <button class="buttons-div-button">STRUCTURE</button>
-        <button class="buttons-div-button">SURFACE</button>
+        <button class="buttons-div-button anotherbutton" data-planet-index2="${index}">OVERVIEW</button>
+        <button class="buttons-div-button anotherbutton" data-planet-index2="${index}">STRUCTURE</button>
+        <button class="buttons-div-button anotherbutton" data-planet-index2="${index}">SURFACE</button>
     </div>
 
 
@@ -40,9 +105,9 @@ function GenerateContent(index) {
             
             <div class="delete-it">
             <div class="buttons-div">
-                <button class="buttons-div-button"><span class="button-number">01</span> OVERVIEW</button>
-                <button class="buttons-div-button"><span class="button-number">02</span> INTERNAL STRUCTURE</button>
-                <button class="buttons-div-button"><span class="button-number">03</span> SURFACE GEOLOGY</button>
+                <button class="buttons-div-button anotherbutton2" data-planet-index="${index}"><span class="button-number">01</span> OVERVIEW</button>
+                <button class="buttons-div-button anotherbutton2" data-planet-index="${index}"><span class="button-number">02</span> INTERNAL STRUCTURE</button>
+                <button class="buttons-div-button anotherbutton2" data-planet-index="${index}"><span class="button-number">03</span> SURFACE GEOLOGY</button>
             </div>
         </div>
 
@@ -76,11 +141,13 @@ function GenerateContent(index) {
 
     </div>
 </div>
-    `
+    `;
 
 };
 
 
+
+    // Generate with HTML with Planet Pages
     const mercuryContent = document.querySelector('.mercury');
     const venusContent = document.querySelector('.venus');
     const earthContent = document.querySelector('.earth');
@@ -114,3 +181,108 @@ function GenerateContent(index) {
     if(neptuneContent) {
         neptuneContent.innerHTML = GenerateContent(7)
     }
+
+
+
+
+
+    // make website functionality
+function manipulation() {
+
+
+        // active Menu (BurgerBar)
+        const burgerMenu = document.querySelector('.burger-bar')
+
+        burgerMenu.addEventListener('click', () => {
+            document.querySelector('.menubar').classList.toggle('active');
+            if(burgerMenu.src.includes('dasdw.png')) {
+                burgerMenu.src = `../assets/Group.png`
+            } else {
+            burgerMenu.src = '../assets/dasdw.png'
+        }
+        });
+
+    
+    
+    
+        // buttons manipulation with Colors pc / Ipad version
+        let lastclicked = null;
+        let lastclicked2 = null
+
+        const buttons = document.querySelectorAll('.anotherbutton2');
+        let i2 = 0;
+        while(i2 < buttons.length) {
+            let allButton = buttons[i2]
+
+            allButton.addEventListener('click', () => {
+                let plIn = allButton.dataset.planetIndex;
+                if(lastclicked) {
+                    lastclicked.style.backgroundColor = 'rgba(7, 7, 36, 1)'
+                }
+                buttons[0].addEventListener('click', function() {
+                    document.querySelector('.content-text').innerHTML = dataPlanet[plIn].content1;
+                    document.querySelector('.planet-2').classList.remove('active2')
+                    document.querySelector('.planet-3').classList.remove('active3')
+                });
+                buttons[1].addEventListener('click', function() {
+                    document.querySelector('.content-text').innerHTML = dataPlanet[plIn].content2;
+                    document.querySelector('.planet-2').classList.add('active2')
+                    document.querySelector('.planet-3').classList.remove('active3')
+                });
+                buttons[2].addEventListener('click', function() {
+                    document.querySelector('.content-text').innerHTML = dataPlanet[plIn].content3;
+                    document.querySelector('.planet-2').classList.remove('active2')
+                    document.querySelector('.planet-3').classList.add('active3')
+                });
+                allButton.style.backgroundColor = dataPlanet[plIn].animationColor
+                lastclicked = allButton;
+            })
+
+            i2++;
+        };
+        if(buttons.length > 0) {
+            buttons[0].click()
+        }
+
+
+        
+        
+        // buttons manipulation with Colors phone version
+        const anotherbuttons = document.querySelectorAll('.anotherbutton');
+        let i3 = 0;
+        while(i3 < anotherbuttons.length) {
+            let another = anotherbuttons[i3];
+            another.addEventListener('click', () => {
+                let plIn2 = another.dataset.planetIndex2;
+                console.log(plIn2)
+                if(lastclicked2) {
+                    lastclicked2.style.borderBottom = `3px solid rgba(7, 7, 36, 1)`
+                }
+                another.style.borderBottom = `3px solid ${dataPlanet[plIn2].animationColor}`;
+                lastclicked2 = another
+            })
+            i3++;
+        };
+        if(anotherbuttons.length > 0) {
+            anotherbuttons[0].click()
+        }
+
+
+
+
+        // buttons manipulation with Colors hover
+        let plLinks = document.querySelectorAll('.planet-links');
+        let i4 = 0;
+        while(i4 < plLinks.length) {
+            let allPlLinks = plLinks[i4];
+            allPlLinks.addEventListener('mouseenter', () => {
+                let plLinksHover = allPlLinks.dataset.planetHover;
+                allPlLinks.style.borderTop = `3px solid ${dataPlanet[plLinksHover].animationColor}`
+            })
+            i4++;
+        };
+    
+    
+    
+}
+manipulation();
