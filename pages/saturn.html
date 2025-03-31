@@ -22,5 +22,19 @@
             <!-- written with JS -->
         </div>
 
+        <!-- fixed bug only saturn page -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const planet2 = document.querySelector('.planet-2');
+                const planet3 = document.querySelector('.invisible');
+                if (planet2) {
+                    planet2.classList.add('planet-2-remaster');
+                }
+                if(planet3) {
+                    planet3.classList.add('invisible-remaster')
+                }
+            });
+        </script>
+
 </body>
 </html>

@@ -297,7 +297,5 @@ function manipulation() {
             i4++;
         };
     
-    
-    
 }
 manipulation();
