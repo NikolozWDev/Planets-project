@@ -86,15 +86,15 @@ function GenerateContent(index) {
 
         <div class="main-img-selector">
             <div class="image-absolute">
-            <img class="planet both1" src="${dataPlanet[index].planetImage1}">
-            <img id="planet-images" class="invisible" src="${dataPlanet[index].planetImage1}">
+            <img class="planet both1 animation1" src="${dataPlanet[index].planetImage1}">
+            <img id="planet-images" class="invisible animation1" src="${dataPlanet[index].planetImage1}">
             <img class="planet-2" src="${dataPlanet[index].planetImage2}">
             <img class="planet-3" src="${dataPlanet[index].planetImage3}">
         </div>
         </div>
 
 
-        <div class="main-content-selector">
+        <div class="main-content-selector animation2">
 
             <div class="content-selector">
                 <p class="content-title">${dataPlanet[index].titleName}</p>
@@ -207,7 +207,7 @@ function manipulation() {
     
         // buttons manipulation with Colors pc / Ipad version
         let lastclicked = null;
-        let lastclicked2 = null
+        let lastclicked2 = null;
 
         const buttons = document.querySelectorAll('.anotherbutton2');
         let i2 = 0;
@@ -238,8 +238,11 @@ function manipulation() {
                 lastclicked = allButton;
             })
 
+
             i2++;
         };
+
+
         if(buttons.length > 0) {
             buttons[0].click()
         }
@@ -299,3 +302,24 @@ function manipulation() {
     
 }
 manipulation();
+
+
+
+            // // button mousemove effect
+            // const element2 = document.querySelectorAll('.test');
+            // let i5 = 0;
+            // while(i5 < element2.length) {
+
+            //     let another2 = element2[i5];
+
+            //     allButton.addEventListener("mousemove", (event) => {
+            //         if(element2) {
+            //         let dataIndex = another2.dataset.colorData;
+            //         another2.style.backgroundColor = `${dataPlanet[dataIndex].animationColor}`
+            //         another2.style.left = `${event.clientX - 15}px`;
+            //         another2.style.top = `${event.clientY - 15}px`;
+            //         }
+            //     });
+
+            //     i5++;
+            // };
