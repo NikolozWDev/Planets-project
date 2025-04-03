@@ -208,6 +208,7 @@ function manipulation() {
         // buttons manipulation with Colors pc / Ipad version
         let lastclicked = null;
         let lastclicked2 = null;
+        let audio = new Audio("../assets/zapsplat_multimedia_game_sound_8_bit_blip_collect_coin_click_112010.mp3")
 
         const buttons = document.querySelectorAll('.anotherbutton2');
         let i2 = 0;
@@ -235,6 +236,7 @@ function manipulation() {
                     document.querySelector('.planet-3').classList.add('active3')
                 });
                 allButton.style.backgroundColor = dataPlanet[plIn].animationColor
+                audio.play();
                 lastclicked = allButton;
             })
 
@@ -277,6 +279,7 @@ function manipulation() {
                     document.querySelector('.planet-3').classList.add('active3')
                 });
                 another.style.borderBottom = `3px solid ${dataPlanet[plIn2].animationColor}`;
+                audio.play();
                 lastclicked2 = another
             })
             i3++;
